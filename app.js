@@ -22,10 +22,10 @@ async function fetchData() {
     const data = await response.json();
 
     // data storing
-    companys = data[0].companys || [];
-    model_names = data[0].model_names || [];
-    years = data[0].year || [];
-    fuel_types = data[0].fuel_type || [];
+    companys = data.companys || [];
+    model_names = data.model_names || [];
+    years = data.year || [];
+    fuel_types = data.fuel_type || [];
 
     populateSelectOptions();
   } catch (error) {
