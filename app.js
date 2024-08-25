@@ -125,7 +125,7 @@ form.addEventListener("submit", async function (event) {
     let p_predict = document.getElementById("predicted-price");
     document.getElementById("loader-container").style.display = "none";
     p_predict.style.display = "block";
-    p_predict.innerHTML = "The Price of Your Car is: $" + data[0].predict;
+    p_predict.innerHTML = "The Price of Your Car is: $" + data.predict;
   } catch (error) {
     console.error("Error fetching data:", error);
     document.getElementById("loader-container").style.display = "none";
