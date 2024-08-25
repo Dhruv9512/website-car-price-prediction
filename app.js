@@ -8,7 +8,7 @@ fuel_types = [];
 
 async function fetchData() {
   try {
-    const response = await fetch("http://127.0.0.1:5000/data", {
+    const response = await fetch("https://api-car-pice-prediction-website.onrender.com/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,9 +59,7 @@ function populateSelectOptions() {
     cnameSelect.appendChild(option);
   });
 
-  // add Model Name options
-  // createDefaultOption(modelSelect, 'Choose option');
-  // on change of company
+  
 
   // add Year options
   createDefaultOption(yearSelect, "Choose option");
@@ -110,7 +108,7 @@ form.addEventListener("submit", async function (event) {
     });
     console.log(object);
 
-    const response = await fetch("http://127.0.0.1:5000/predict", {
+    const response = await fetch("https://api-car-pice-prediction-website.onrender.com/predict", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
