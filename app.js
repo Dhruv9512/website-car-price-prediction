@@ -101,6 +101,15 @@ let form = document.getElementById("form");
 form.addEventListener("submit", async function (event) {
   try {
     event.preventDefault();
+
+    // Show the loader
+    document.getElementById("loader-container").style.display = "block";
+
+    // Clear previous prediction
+    let p_predict = document.getElementById("predicted-price");
+    p_predict.style.display = "none";
+    p_predict.innerHTML = "";
+
     const o = new FormData(form);
     const object = {};
     o.forEach((value, key) => {
@@ -122,12 +131,14 @@ form.addEventListener("submit", async function (event) {
 
     const data = await response.json();
     
-    let p_predict = document.getElementById("predicted-price");
-    document.getElementById("loader-container").style.display = "none";
+    // Display new prediction
     p_predict.style.display = "block";
     p_predict.innerHTML = "The Price of Your Car is: $" + data.predict;
+
   } catch (error) {
     console.error("Error fetching data:", error);
+  } finally {
+    // Hide the loader regardless of success or error
     document.getElementById("loader-container").style.display = "none";
   }
 });
